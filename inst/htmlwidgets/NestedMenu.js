@@ -14,7 +14,14 @@ HTMLWidgets.widget({
         if(x.size !== null){
           $button.addClass("btn-" + x.size);
         }
-        $button.html('<i class="fa fa-minus"></i>' + x.label);
+
+        if (x.icon) {
+          text = '<i class="fa ' + x.icon + '"></i> ' + x.label;
+        } else {
+          text = x.label;
+        }
+        
+        $button.html(text);
 
         $.contextMenu({
           selector: selector,
