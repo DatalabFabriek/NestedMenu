@@ -13,6 +13,7 @@
 #' @param size size of the root button: \code{NULL} (normal), \code{"lg"}
 #'   (large), \code{"sm"} (small) or \code{"xs"} (extra-small)
 #' @param elementId a HTML id; this is usually useless
+#' @param button a FontAwesome button name, e.g. fa-save
 #'
 #' @return A \code{htmlwidget} object.
 #'
@@ -25,7 +26,7 @@
 #' @export
 NestedMenu <- function(
   label, items, trigger = "left", style = "primary", size = NULL,
-  elementId = NULL
+  elementId = NULL, button = NULL
 ) {
 
   # forward options using x
@@ -36,7 +37,8 @@ NestedMenu <- function(
     style   = match.arg(style,
       c("primary", "info", "success", "warning", "danger")
     ),
-    size    = if(!is.null(size)) match.arg(size, c("lg", "sm", "xs"))
+    size    = if(!is.null(size)) match.arg(size, c("lg", "sm", "xs")),
+    button  = button
   )
 
   # create widget
