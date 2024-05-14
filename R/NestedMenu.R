@@ -26,7 +26,7 @@
 #' @export
 NestedMenu <- function(
   label, items, trigger = "left", style = "primary", size = NULL,
-  elementId = NULL, button = NULL
+  elementId = NULL, icon = NULL
 ) {
 
   # forward options using x
@@ -38,7 +38,7 @@ NestedMenu <- function(
       c("primary", "info", "success", "warning", "danger")
     ),
     size    = if(!is.null(size)) match.arg(size, c("lg", "sm", "xs")),
-    button  = button
+    icon  = icon
   )
 
   # create widget
