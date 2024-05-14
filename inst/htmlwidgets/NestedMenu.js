@@ -16,7 +16,7 @@ HTMLWidgets.widget({
         }
 
         if (x.icon) {
-          text = '<i class="fa ' + x.icon + '"></i> ' + x.label;
+          text = '<i class="fa-regular ' + x.icon + '"></i> &nbsp;' + x.label;
         } else {
           text = x.label;
         }
