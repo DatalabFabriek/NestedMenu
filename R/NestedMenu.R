@@ -13,7 +13,8 @@
 #' @param size size of the root button: \code{NULL} (normal), \code{"lg"}
 #'   (large), \code{"sm"} (small) or \code{"xs"} (extra-small)
 #' @param elementId a HTML id; this is usually useless
-#' @param button a FontAwesome button name, e.g. fa-save
+#' @param icon a FontAwesome icon name, e.g. fa-save
+#' @param zIndex offset for the z-index for menus, defaults to 1
 #'
 #' @return A \code{htmlwidget} object.
 #'
@@ -26,7 +27,7 @@
 #' @export
 NestedMenu <- function(
   label, items, trigger = "left", style = "primary", size = NULL,
-  elementId = NULL, icon = NULL
+  elementId = NULL, icon = NULL, zIndex = 1
 ) {
 
   # forward options using x
@@ -38,7 +39,8 @@ NestedMenu <- function(
       c("primary", "info", "success", "warning", "danger")
     ),
     size    = if(!is.null(size)) match.arg(size, c("lg", "sm", "xs")),
-    icon  = icon
+    icon  = icon,
+    zIndex = zIndex
   )
 
   # create widget
