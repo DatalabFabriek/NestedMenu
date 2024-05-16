@@ -20,6 +20,12 @@ HTMLWidgets.widget({
         } else {
           text = x.label;
         }
+
+        if (x.zIndex) {
+          zIndex = x.zIndex;
+        } else {
+          zIndex = 1;
+        }
         
         $button.html(text);
 
@@ -31,6 +37,7 @@ HTMLWidgets.widget({
               Shiny.setInputValue(el.id, key, {priority: "event"});
             }
           },
+          zIndex: zIndex,
           items: x.items
         });
       },
