@@ -28,7 +28,11 @@ HTMLWidgets.widget({
         }
         
         $button.html(text);
+        
+        // Destroy any existing contextMenu
+        $.contextMenu('destroy', selector);
 
+        // Render the new contextMenu
         $.contextMenu({
           selector: selector,
           trigger: x.trigger,
