@@ -41,6 +41,7 @@ HTMLWidgets.widget({
               Shiny.setInputValue(el.id, key, {priority: "event"});
             }
           },
+          selectableSubMenu: x.selectableSubMenu,
           zIndex: zIndex,
           items: x.items
         });
