@@ -15,6 +15,7 @@
 #' @param elementId a HTML id; this is usually useless
 #' @param icon a FontAwesome icon name, e.g. fa-save
 #' @param zIndex offset for the z-index for menus, defaults to 1
+#' @param selectableSubMenu Boolean, indicating whether a click on a folder leads to just a submenu opening (if FALSE), or to a selection of that folder (if TRUE)
 #'
 #' @return A \code{htmlwidget} object.
 #'
@@ -27,7 +28,7 @@
 #' @export
 NestedMenu <- function(
   label, items, trigger = "left", style = "primary", size = NULL,
-  elementId = NULL, icon = NULL, zIndex = 1
+  elementId = NULL, icon = NULL, zIndex = 1, selectableSubMenu = FALSE
 ) {
 
   # forward options using x
@@ -40,7 +41,8 @@ NestedMenu <- function(
     ),
     size    = if(!is.null(size)) match.arg(size, c("lg", "sm", "xs")),
     icon  = icon,
-    zIndex = zIndex
+    zIndex = zIndex,
+    selectableSubMenu = selectableSubMenu
   )
 
   # create widget
@@ -50,12 +52,12 @@ NestedMenu <- function(
     width = NULL,
     height = NULL,
     package = "NestedMenu",
-    elementId = elementId,
-    dependencies = list(
-      jquery_core(major_version = 3, minified = TRUE),
-      bootstrapLib(theme = NULL),
-      fa_html_dependency()
-    )
+    elementId = elementId#,
+    # dependencies = list(
+    #   jquery_core(major_version = 3, minified = TRUE),
+    #   bootstrapLib(theme = NULL)#,
+    #   fa_html_dependency()
+    # )
   )
 }
 
